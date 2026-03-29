@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Affiliate Disclaimer"
+  description="Read our affiliate disclosure policy. USMLE Prep Guide may earn commissions from affiliate links at no cost to you."
+>
+  <Header />
+
+  <main class="container">
+    <article class="page-content">
+      <h1>Affiliate Disclaimer</h1>
+      <p class="last-updated"><em>Last updated: March 29, 2026</em></p>
+
+      <h2>Affiliate Link Disclosure</h2>
+      <p>
+        USMLE Prep Guide participates in affiliate marketing programs. This means that when you click on certain links on this website and make a purchase, we may receive a small commission at <strong>no additional cost to you</strong>.
+      </p>
+      <p>
+        We are a participant in affiliate programs including, but not limited to, programs offered by Amboss, UWorld, Sketchy, Boards &amp; Beyond, and other USMLE prep companies. These commissions help us maintain this site and continue producing free content for medical students.
+      </p>
+
+      <h2>Our Editorial Independence</h2>
+      <p>
+        All recommendations on this site reflect our honest assessment of the resources. We only recommend products and services that we believe provide genuine value to USMLE candidates. Affiliate relationships do not influence our reviews, rankings, or editorial content.
+      </p>
+
+      <h2>FTC Compliance</h2>
+      <p>
+        In accordance with the Federal Trade Commission's <a href="https://www.ftc.gov/business-guidance/resources/ftcs-endorsement-guides-what-people-are-asking" rel="noopener noreferrer" target="_blank">guidelines on endorsements and testimonials</a>, we disclose our affiliate relationships clearly. Any page or article that contains affiliate links will display a disclosure notice.
+      </p>
+
+      <h2>Medical Disclaimer</h2>
+      <p>
+        The content on USMLE Prep Guide is intended <strong>for educational and informational purposes only</strong>. It is not medical advice and should not be used as a substitute for professional medical judgment, diagnosis, or treatment. We are not affiliated with the National Board of Medical Examiners (NBME) or the United States Medical Licensing Examination (USMLE) program.
+      </p>
+      <p>
+        Always consult qualified medical educators and official USMLE resources for current exam guidelines.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        If you have questions about our affiliate relationships or this disclaimer, please reach out via the contact information listed in the site footer.
+      </p>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .page-content {
+    padding: 2.5rem 0 4rem;
+    max-width: 680px;
+  }
+
+  .page-content h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0 0 0.5rem;
+  }
+
+  .last-updated {
+    color: var(--color-muted);
+    font-size: 0.875rem;
+    margin: 0 0 2rem;
+  }
+
+  .page-content h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 2rem 0 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.35rem;
+  }
+
+  .page-content p {
+    margin: 0 0 1rem;
+    line-height: 1.75;
+  }
+</style>

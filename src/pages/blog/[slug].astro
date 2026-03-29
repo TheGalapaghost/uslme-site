@@ -1,0 +1,36 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+
+export async function getStaticPaths() {
+  const postFiles = await Astro.glob('../../../posts/*.md');
+
+  return postFiles.map((post) => {
+    const slug =
+      post.frontmatter.slug ||
+      post.file.split('/').pop()?.replace('.md', '');
+
+    return {
+      params: { slug },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+const { title, description, date, tags } = post.frontmatter;
+const slug =
+  post.frontmatter.slug ||
+  post.file.split('/').pop()?.replace('.md', '');
+
+const Content = post.Content;
+---
+
+<BlogPost
+  title={title}
+  description={description}
+  date={date}
+  slug={slug}
+  tags={tags ?? []}
+>
+  <Content />
+</BlogPost>

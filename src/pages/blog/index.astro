@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PostCard from '../../components/PostCard.astro';
+
+const postFiles = await Astro.glob('../../../posts/*.md');
+
+const posts = postFiles
+  .map((post) => ({
+    ...post.frontmatter,
+    slug: post.frontmatter.slug || post.file.split('/').pop()?.replace('.md', ''),
+  }))
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+---
+
+<BaseLayout
+  title="All USMLE Articles"
+  description="Browse all USMLE exam prep articles covering Step 1, Step 2 CK, and Step 3 study strategies, resources, and tips."
+>
+  <Header />
+
+  <main class="container">
+    <div class="page-header">
+      <h1>All Articles</h1>
+      <p>{posts.length} article{posts.length !== 1 ? 's' : ''} on USMLE exam prep</p>
+    </div>
+
+    {posts.length > 0 ? (
+      <div class="posts-grid">
+        {posts.map((post) => (
+          <PostCard
+            title={post.title}
+            description={post.description}
+            date={post.date}
+            slug={post.slug}
+            tags={post.tags}
+          />
+        ))}
+      </div>
+    ) : (
+      <p style="color: var(--color-muted); text-align: center; padding: 4rem 0;">
+        Articles coming soon. Check back tomorrow!
+      </p>
+    )}
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding: 2.5rem 0 2rem;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 2rem;
+  }
+
+  .page-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0 0 0.4rem;
+  }
+
+  .page-header p {
+    color: var(--color-muted);
+    margin: 0;
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+    padding-bottom: 3rem;
+  }
+</style>

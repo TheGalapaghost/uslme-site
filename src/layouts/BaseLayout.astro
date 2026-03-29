@@ -1,0 +1,88 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description = 'Expert USMLE exam prep guides for Step 1, Step 2, and Step 3. Evidence-based strategies, mnemonics, and resource reviews.',
+  canonicalUrl = Astro.url.href,
+  ogImage = '/og-default.svg',
+} = Astro.props;
+
+const siteName = 'USMLE Prep Guide';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title="USMLE Prep Guide RSS Feed" href="/rss.xml" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <title>{title} | {siteName}</title>
+
+    <style is:global>
+      *, *::before, *::after { box-sizing: border-box; }
+
+      :root {
+        --color-bg: #ffffff;
+        --color-text: #1a1a2e;
+        --color-muted: #5a6270;
+        --color-accent: #1d4ed8;
+        --color-accent-hover: #1e40af;
+        --color-border: #e5e7eb;
+        --color-surface: #f8fafc;
+        --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+        --font-serif: 'Georgia', 'Times New Roman', serif;
+        --max-width: 780px;
+        --radius: 8px;
+      }
+
+      body {
+        margin: 0;
+        font-family: var(--font-sans);
+        background: var(--color-bg);
+        color: var(--color-text);
+        line-height: 1.7;
+        font-size: 1rem;
+      }
+
+      a { color: var(--color-accent); text-decoration: none; }
+      a:hover { color: var(--color-accent-hover); text-decoration: underline; }
+
+      img { max-width: 100%; height: auto; }
+
+      .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 1.25rem;
+      }
+    </style>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

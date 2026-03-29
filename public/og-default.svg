@@ -1,0 +1,22 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1d4ed8"/>
+      <stop offset="100%" style="stop-color:#1e3a8a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="16" fill="rgba(255,255,255,0.08)"/>
+  <!-- Logo badge -->
+  <rect x="100" y="100" width="120" height="44" rx="8" fill="#ffffff"/>
+  <text x="160" y="130" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="#1d4ed8" text-anchor="middle">USMLE</text>
+  <text x="236" y="130" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="#ffffff">Prep Guide</text>
+  <!-- Main title -->
+  <text x="100" y="250" font-family="system-ui, -apple-system, sans-serif" font-size="56" font-weight="800" fill="#ffffff">Pass the USMLE.</text>
+  <text x="100" y="320" font-family="system-ui, -apple-system, sans-serif" font-size="56" font-weight="800" fill="#ffffff">Study smarter,</text>
+  <text x="100" y="390" font-family="system-ui, -apple-system, sans-serif" font-size="56" font-weight="800" fill="#ffffff">not harder.</text>
+  <!-- Tagline -->
+  <text x="100" y="460" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="rgba(255,255,255,0.8)">Evidence-based guides for Step 1, Step 2 CK, and Step 3</text>
+  <!-- Domain -->
+  <text x="100" y="530" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="600" fill="rgba(255,255,255,0.6)">usmleprep.guide</text>
+</svg>

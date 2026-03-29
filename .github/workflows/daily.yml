@@ -1,0 +1,112 @@
+name: Daily Article Generator
+
+on:
+  schedule:
+    - cron: "0 8 * * *"  # 8:00 AM UTC daily
+  workflow_dispatch:      # allow manual trigger from GitHub UI
+    inputs:
+      keyword:
+        description: "Override keyword (leave blank to use the daily rotation)"
+        required: false
+        default: ""
+
+jobs:
+  generate-article:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install anthropic
+
+      - name: Pick daily keyword
+        id: keyword
+        run: |
+          # If a keyword was passed via workflow_dispatch, use it.
+          if [ -n "${{ github.event.inputs.keyword }}" ]; then
+            echo "keyword=${{ github.event.inputs.keyword }}" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          # Otherwise rotate through the keyword list using day-of-year.
+          DAY=$(date +%j)
+
+          KEYWORDS=(
+            "usmle step 1 cardiology high yield topics"
+            "best anki decks for usmle step 1"
+            "how to study pathology for usmle step 1"
+            "uworld vs amboss step 1 review"
+            "first aid usmle step 1 how to use"
+            "usmle step 1 biochemistry high yield"
+            "sketchy medical review usmle step 1"
+            "usmle step 1 neurology high yield"
+            "pathoma vs goljan for step 1"
+            "usmle step 1 microbiology and immunology guide"
+            "how to make an anki deck for usmle"
+            "usmle step 1 dedicated study schedule 8 weeks"
+            "boards and beyond usmle step 1 review"
+            "usmle step 1 pharmacology mnemonics"
+            "usmle step 1 score 250 study plan"
+            "usmle step 2 ck internal medicine high yield"
+            "best resources for usmle step 2 ck"
+            "usmle step 2 ck shelf exam preparation"
+            "usmle step 2 ck psychiatry high yield topics"
+            "divine intervention podcasts step 2 ck review"
+            "usmle step 2 ck surgery rotation guide"
+            "usmle step 2 ck pediatrics high yield facts"
+            "usmle step 2 ck obgyn high yield topics"
+            "how long to study for usmle step 2 ck"
+            "usmle step 2 ck qbank comparison"
+            "usmle step 3 study guide for residents"
+            "usmle step 3 biostatistics and epidemiology high yield"
+            "usmle step 3 ccs cases strategy"
+            "best resources for usmle step 3"
+            "usmle step 3 how to pass on first attempt"
+            "usmle step 1 renal physiology high yield"
+            "usmle step 1 respiratory physiology mnemonics"
+            "usmle step 1 endocrinology high yield"
+            "usmle step 1 hematology high yield topics"
+            "usmle step 1 musculoskeletal and dermatology"
+            "usmle step 1 reproductive system high yield"
+            "img friendly residency programs usmle score"
+            "how to prepare for usmle as international medical graduate"
+            "usmle score requirements for residency match"
+            "usmle step 1 behavioral science and ethics"
+          )
+
+          COUNT=${#KEYWORDS[@]}
+          INDEX=$((($DAY - 1) % $COUNT))
+          echo "keyword=${KEYWORDS[$INDEX]}" >> $GITHUB_OUTPUT
+
+      - name: Generate article
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python pipeline.py --keyword "${{ steps.keyword.outputs.keyword }}"
+
+      - name: Commit and push article
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+          git add posts/
+
+          # Only commit if there are changes
+          if git diff --staged --quiet; then
+            echo "No new article to commit (duplicate keyword skipped)."
+          else
+            KEYWORD="${{ steps.keyword.outputs.keyword }}"
+            git commit -m "feat(content): add article — ${KEYWORD}"
+            git push
+          fi

@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PostCard from '../../components/PostCard.astro';
+
+export async function getStaticPaths() {
+  const postFiles = await Astro.glob('../../../posts/*.md');
+
+  const tagMap = new Map<string, any[]>();
+
+  for (const post of postFiles) {
+    const tags: string[] = post.frontmatter.tags ?? [];
+    const postData = {
+      ...post.frontmatter,
+      slug: post.frontmatter.slug || post.file.split('/').pop()?.replace('.md', ''),
+    };
+
+    for (const tag of tags) {
+      const normalized = tag.toLowerCase().replace(/\s+/g, '-');
+      if (!tagMap.has(normalized)) {
+        tagMap.set(normalized, []);
+      }
+      tagMap.get(normalized)!.push({ ...postData, originalTag: tag });
+    }
+  }
+
+  return Array.from(tagMap.entries()).map(([tag, posts]) => ({
+    params: { tag },
+    props: {
+      tagLabel: posts[0].originalTag,
+      posts: posts.sort(
+        (a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime()
+      ),
+    },
+  }));
+}
+
+const { tagLabel, posts } = Astro.props;
+---
+
+<BaseLayout
+  title={`Articles tagged "${tagLabel}"`}
+  description={`Browse all USMLE prep articles tagged with "${tagLabel}".`}
+>
+  <Header />
+
+  <main class="container">
+    <div class="page-header">
+      <a href="/blog" class="back-link">&larr; All Articles</a>
+      <h1>Tag: {tagLabel}</h1>
+      <p>{posts.length} article{posts.length !== 1 ? 's' : ''}</p>
+    </div>
+
+    <div class="posts-grid">
+      {posts.map((post: any) => (
+        <PostCard
+          title={post.title}
+          description={post.description}
+          date={post.date}
+          slug={post.slug}
+          tags={post.tags}
+        />
+      ))}
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding: 2.5rem 0 2rem;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 2rem;
+  }
+
+  .back-link {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    display: inline-block;
+    margin-bottom: 0.75rem;
+  }
+
+  .page-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0 0 0.4rem;
+  }
+
+  .page-header p {
+    color: var(--color-muted);
+    margin: 0;
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+    padding-bottom: 3rem;
+  }
+</style>

@@ -1,0 +1,96 @@
+---
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/blog', label: 'Articles' },
+  { href: '/disclaimer', label: 'Disclaimer' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <span class="logo-mark">USMLE</span>
+      <span class="logo-text">Prep Guide</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+      <ul class="nav-list">
+        {navLinks.map(({ href, label }) => (
+          <li>
+            <a
+              href={href}
+              class:list={['nav-link', { active: currentPath === href || (href !== '/' && currentPath.startsWith(href)) }]}
+            >
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--color-border);
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  .logo-mark {
+    background: var(--color-accent);
+    color: #fff;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+  }
+
+  .logo-text {
+    color: var(--color-text);
+  }
+
+  .nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .nav-link {
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius);
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.15s, background 0.15s;
+    text-decoration: none;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--color-accent);
+    background: var(--color-surface);
+  }
+</style>

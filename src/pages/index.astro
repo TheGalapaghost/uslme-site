@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PostCard from '../components/PostCard.astro';
+
+// Load all markdown posts from /posts directory
+const postFiles = await Astro.glob('../../posts/*.md');
+
+const posts = postFiles
+  .map((post) => ({
+    ...post.frontmatter,
+    slug: post.frontmatter.slug || post.file.split('/').pop()?.replace('.md', ''),
+  }))
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+const featuredPost = posts[0];
+const recentPosts = posts.slice(1);
+---
+
+<BaseLayout
+  title="USMLE Prep Guide — Step 1, Step 2 & Step 3 Study Resources"
+  description="Expert USMLE exam prep guides, resource reviews, and study strategies for medical students tackling Step 1, Step 2 CK, and Step 3."
+>
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-headline">Pass the USMLE.<br />Study smarter, not harder.</h1>
+        <p class="hero-sub">
+          Evidence-based guides, resource reviews, and study plans for Step 1, Step 2 CK, and Step 3 — updated regularly.
+        </p>
+        <a href="/blog" class="hero-cta">Browse All Articles</a>
+      </div>
+    </section>
+
+    <div class="container">
+      <!-- Featured post -->
+      {featuredPost && (
+        <section class="section">
+          <h2 class="section-title">Latest Article</h2>
+          <PostCard
+            title={featuredPost.title}
+            description={featuredPost.description}
+            date={featuredPost.date}
+            slug={featuredPost.slug}
+            tags={featuredPost.tags}
+          />
+        </section>
+      )}
+
+      <!-- Recent posts grid -->
+      {recentPosts.length > 0 && (
+        <section class="section">
+          <h2 class="section-title">Recent Articles</h2>
+          <div class="posts-grid">
+            {recentPosts.map((post) => (
+              <PostCard
+                title={post.title}
+                description={post.description}
+                date={post.date}
+                slug={post.slug}
+                tags={post.tags}
+              />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {posts.length === 0 && (
+        <section class="section">
+          <p style="color: var(--color-muted); text-align: center; padding: 4rem 0;">
+            Articles are being generated. Check back soon!
+          </p>
+        </section>
+      )}
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%);
+    color: #fff;
+    padding: 4rem 0;
+    margin-bottom: 3rem;
+  }
+
+  .hero-headline {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 900;
+    margin: 0 0 1rem;
+    line-height: 1.15;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin: 0 0 1.75rem;
+    max-width: 540px;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    background: #fff;
+    color: var(--color-accent);
+    font-weight: 700;
+    padding: 0.65rem 1.5rem;
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .hero-cta:hover {
+    opacity: 0.9;
+    text-decoration: none;
+  }
+
+  .section {
+    margin-bottom: 3rem;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 1.25rem;
+    color: var(--color-text);
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+  }
+</style>
