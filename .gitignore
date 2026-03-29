@@ -36,3 +36,8 @@ venv/
 # Reddit monitor
 reddit_drafts/
 .reddit_seen.json
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
