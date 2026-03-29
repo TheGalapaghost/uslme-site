@@ -32,3 +32,7 @@ __pycache__/
 *.pyo
 .venv/
 venv/
+
+# Reddit monitor
+reddit_drafts/
+.reddit_seen.json
