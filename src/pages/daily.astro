@@ -30,7 +30,7 @@ import questions from '../data/questions.json';
       <p class="question-stem" id="question-stem"></p>
       <div class="choices" id="choices"></div>
       <button class="reveal-btn" id="reveal-btn">Show Answer</button>
-      <div class="explanation hidden" id="explanation">
+      <div class="explanation q-hidden" id="explanation">
         <div class="answer-banner" id="answer-banner"></div>
         <p class="explanation-text" id="explanation-text"></p>
         <div class="high-yield" id="high-yield"></div>
@@ -99,12 +99,12 @@ import questions from '../data/questions.json';
     });
 
     const explEl = document.getElementById('explanation');
-    explEl.classList.add('hidden');
+    explEl.classList.add('q-hidden');
     document.getElementById('explanation-text').textContent = q.explanation;
     document.getElementById('high-yield').innerHTML = `<strong>High Yield:</strong> ${q.highYield}`;
 
     const revealBtn = document.getElementById('reveal-btn');
-    revealBtn.classList.remove('hidden');
+    revealBtn.classList.remove('q-hidden');
     revealBtn.textContent = 'Show Answer';
   }
 
@@ -150,8 +150,8 @@ import questions from '../data/questions.json';
       banner.className = 'answer-banner incorrect';
     }
 
-    document.getElementById('explanation').classList.remove('hidden');
-    document.getElementById('reveal-btn').classList.add('hidden');
+    document.getElementById('explanation').classList.remove('q-hidden');
+    document.getElementById('reveal-btn').classList.add('q-hidden');
   }
 
   // Tab switching
@@ -175,7 +175,7 @@ import questions from '../data/questions.json';
   renderQuestion();
 </script>
 
-<style>
+<style is:global>
   .page-header {
     padding: 2.5rem 0 1.5rem;
     border-bottom: 1px solid var(--color-border);
@@ -467,11 +467,11 @@ import questions from '../data/questions.json';
     box-shadow: 0 2px 8px rgba(29, 78, 216, 0.2);
   }
 
-  .reveal-btn.hidden {
+  .reveal-btn.q-hidden {
     display: none;
   }
 
-  .hidden {
+  .q-hidden {
     display: none;
   }
 
