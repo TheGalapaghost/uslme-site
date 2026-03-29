@@ -1,0 +1,54 @@
+---
+// Shown at the bottom of each blog post, above the affiliate notice
+---
+
+<aside class="author-bio">
+  <div class="author-avatar">S</div>
+  <div class="author-info">
+    <p class="author-label">Written by a <strong>real med student</strong></p>
+    <p class="author-desc">
+      Every recommendation on this site comes from hands-on experience with these resources —
+      not a content team. <a href="/about">Read more about this project</a>.
+    </p>
+  </div>
+</aside>
+
+<style>
+  .author-bio {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    padding: 1.25rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+  }
+
+  .author-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  .author-label {
+    margin: 0 0 0.25rem;
+    font-size: 0.9rem;
+    color: var(--color-text);
+  }
+
+  .author-desc {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+  }
+</style>

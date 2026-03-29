@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="About — A Med Student's Honest Guide to Board Prep"
+  description="USMLE Prep Guide is built by a medical student who's been through the trenches. Real advice, real experience, no fluff."
+>
+  <Header />
+
+  <main class="container">
+    <article class="about">
+      <div class="about-header">
+        <div class="avatar">S</div>
+        <div>
+          <h1>Hey, I'm a real med student.</h1>
+          <p class="subtitle">And I built this because I wish it existed when I started.</p>
+        </div>
+      </div>
+
+      <div class="about-body">
+        <h2>Why this site exists</h2>
+        <p>
+          When I started prepping for boards, I spent <strong>weeks</strong> just figuring out
+          what to study with. Every forum thread contradicted the last one. Reddit said use Anking.
+          My upperclassman said skip Anki entirely. One blog ranked UWorld #1, another said Amboss
+          was better. Nobody agreed on anything.
+        </p>
+        <p>
+          I wasted time I didn't have.
+        </p>
+        <p>
+          So I built USMLE Prep Guide to be the resource I wish I'd had — <strong>one place</strong>
+          with honest, experience-backed advice on what actually works, what's overrated, and how to
+          build a study plan that doesn't fall apart at week 3.
+        </p>
+
+        <h2>What makes this different</h2>
+        <p>
+          This isn't a corporate content farm. I'm a med student writing about what I've actually
+          used, what my classmates swear by, and what the data says. Every recommendation comes
+          from real experience in the trenches — not a marketing team.
+        </p>
+        <ul>
+          <li><strong>Honest reviews</strong> — if a $400 qbank isn't worth it, I'll say so</li>
+          <li><strong>Practical schedules</strong> — built around how students actually study, not how we wish we did</li>
+          <li><strong>No gatekeeping</strong> — the best resources and strategies, explained clearly</li>
+        </ul>
+
+        <h2>The deal with affiliate links</h2>
+        <p>
+          Some links on this site are affiliate links. If you buy something through them, I might
+          earn a small commission — at zero extra cost to you. It helps keep this site running.
+          But I'll never recommend something I wouldn't use myself. That's a promise.
+        </p>
+        <p>
+          Full details on our <a href="/disclaimer">disclaimer page</a>.
+        </p>
+
+        <h2>Currently</h2>
+        <ul>
+          <li>Surviving medical school one Anki review at a time</li>
+          <li>Maintaining a questionable relationship with First Aid</li>
+          <li>Trying to convince myself that "just one more UWorld block" is a good idea at 11 PM</li>
+        </ul>
+
+        <p class="closing">
+          If anything on this site helps you score even a few points higher — or saves you from
+          buying a resource you don't need — then it was worth building.
+        </p>
+        <p class="closing">
+          Good luck out there. You've got this.
+        </p>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .about {
+    padding: 2.5rem 0 4rem;
+    max-width: 680px;
+  }
+
+  .about-header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  .about-header h1 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin: 0 0 0.25rem;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    color: var(--color-muted);
+    margin: 0;
+    font-size: 1.05rem;
+  }
+
+  .about-body h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 2rem 0 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.35rem;
+  }
+
+  .about-body p {
+    margin: 0 0 1rem;
+    line-height: 1.75;
+  }
+
+  .about-body ul {
+    margin: 0 0 1.25rem 1.5rem;
+    line-height: 1.75;
+  }
+
+  .about-body li {
+    margin-bottom: 0.4rem;
+  }
+
+  .closing {
+    font-size: 1.05rem;
+    font-weight: 500;
+  }
+</style>
