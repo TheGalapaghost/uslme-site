@@ -87,8 +87,14 @@ import questions from '../data/questions.json';
     q.choices.forEach((choice, i) => {
       const btn = document.createElement('button');
       btn.className = 'choice';
+      btn.style.animationDelay = `${i * 0.05}s`;
       btn.innerHTML = `<span class="choice-letter">${labels[i]}</span><span class="choice-text">${choice}</span>`;
-      btn.addEventListener('click', () => selectChoice(i, q.answer));
+      btn.addEventListener('click', (e) => {
+        const rect = btn.getBoundingClientRect();
+        btn.style.setProperty('--ripple-x', `${((e.clientX - rect.left) / rect.width) * 100}%`);
+        btn.style.setProperty('--ripple-y', `${((e.clientY - rect.top) / rect.height) * 100}%`);
+        selectChoice(i, q.answer);
+      });
       choicesEl.appendChild(btn);
     });
 
@@ -122,9 +128,13 @@ import questions from '../data/questions.json';
 
     document.querySelectorAll('.choice').forEach((btn, i) => {
       btn.classList.remove('selected');
-      if (i === q.answer) btn.classList.add('correct');
-      if (selectedChoice !== null && i === selectedChoice && i !== q.answer) {
+      btn.style.cursor = 'default';
+      if (i === q.answer) {
+        btn.classList.add('correct');
+      } else if (selectedChoice !== null && i === selectedChoice) {
         btn.classList.add('incorrect');
+      } else {
+        btn.classList.add('dimmed');
       }
     });
 
@@ -187,37 +197,43 @@ import questions from '../data/questions.json';
     display: flex;
     gap: 0.5rem;
     margin-bottom: 1.5rem;
+    background: var(--color-surface);
+    border-radius: 12px;
+    padding: 0.3rem;
+    border: 1px solid var(--color-border);
+    width: fit-content;
   }
 
   .tab {
-    padding: 0.5rem 1.25rem;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-    background: #fff;
+    padding: 0.55rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
     color: var(--color-muted);
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.15s;
+    transition: all 0.25s ease;
   }
 
   .tab.active {
     background: var(--color-accent);
     color: #fff;
-    border-color: var(--color-accent);
+    box-shadow: 0 2px 8px rgba(29, 78, 216, 0.25);
   }
 
   .tab:hover:not(.active) {
-    border-color: var(--color-accent);
     color: var(--color-accent);
+    background: rgba(29, 78, 216, 0.06);
   }
 
   .question-card {
     border: 1px solid var(--color-border);
-    border-radius: var(--radius);
+    border-radius: 16px;
     padding: 2rem;
     background: #fff;
     margin-bottom: 2rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 6px 24px rgba(0, 0, 0, 0.03);
   }
 
   .question-meta {
@@ -228,15 +244,15 @@ import questions from '../data/questions.json';
   }
 
   .question-topic {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
+    background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+    border: 1px solid #c7d2fe;
     border-radius: 999px;
-    padding: 0.15rem 0.65rem;
-    font-size: 0.8rem;
-    color: var(--color-muted);
-    font-weight: 500;
+    padding: 0.2rem 0.75rem;
+    font-size: 0.78rem;
+    color: var(--color-accent);
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
   }
 
   .question-date {
@@ -254,98 +270,201 @@ import questions from '../data/questions.json';
   .choices {
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 0.65rem;
     margin-bottom: 1.5rem;
+  }
+
+  .choices .choice {
+    animation: slideUp 0.35s ease both;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   .choice {
     display: flex;
     align-items: flex-start;
-    gap: 0.75rem;
-    padding: 0.85rem 1rem;
+    gap: 0.85rem;
+    padding: 1rem 1.15rem;
     border: 2px solid var(--color-border);
-    border-radius: var(--radius);
+    border-radius: 12px;
     background: #fff;
     cursor: pointer;
     text-align: left;
     font-size: 0.95rem;
     line-height: 1.5;
-    transition: border-color 0.15s, background 0.15s;
+    transition: border-color 0.25s ease, background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .choice::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--ripple-x, 50%) var(--ripple-y, 50%), rgba(29, 78, 216, 0.08) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
   }
 
   .choice:hover {
     border-color: var(--color-accent);
     background: #f0f5ff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(29, 78, 216, 0.08);
+  }
+
+  .choice:hover::before {
+    opacity: 1;
+  }
+
+  .choice:active {
+    transform: translateY(0);
+    box-shadow: none;
   }
 
   .choice.selected {
     border-color: var(--color-accent);
-    background: #e8efff;
+    background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+    box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.12);
+    transform: translateY(-1px);
   }
 
   .choice.correct {
     border-color: #16a34a;
-    background: #f0fdf4;
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12);
+    transform: translateY(-1px);
+    animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
   .choice.incorrect {
     border-color: #dc2626;
-    background: #fef2f2;
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+    animation: shake 0.4s ease;
+  }
+
+  .choice.dimmed {
+    opacity: 0.5;
+    transform: scale(0.98);
+  }
+
+  @keyframes popIn {
+    0% { transform: scale(0.97); }
+    50% { transform: scale(1.02) translateY(-2px); }
+    100% { transform: scale(1) translateY(-1px); }
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-6px); }
+    40% { transform: translateX(5px); }
+    60% { transform: translateX(-4px); }
+    80% { transform: translateX(2px); }
   }
 
   .choice-letter {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     background: var(--color-surface);
-    border: 1px solid var(--color-border);
+    border: 2px solid var(--color-border);
     font-size: 0.8rem;
-    font-weight: 700;
+    font-weight: 800;
     color: var(--color-muted);
     flex-shrink: 0;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .choice:hover .choice-letter {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    transform: scale(1.05);
   }
 
   .choice.selected .choice-letter {
     background: var(--color-accent);
     color: #fff;
     border-color: var(--color-accent);
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(29, 78, 216, 0.3);
   }
 
   .choice.correct .choice-letter {
     background: #16a34a;
     color: #fff;
     border-color: #16a34a;
+    transform: scale(1.15);
+    box-shadow: 0 2px 8px rgba(22, 163, 74, 0.3);
+  }
+
+  .choice.correct .choice-letter::after {
+    content: '';
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(22, 163, 74, 0.2);
+    animation: ping 0.6s ease-out;
+  }
+
+  @keyframes ping {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(2); opacity: 0; }
   }
 
   .choice.incorrect .choice-letter {
     background: #dc2626;
     color: #fff;
     border-color: #dc2626;
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
   }
 
   .choice-text {
-    padding-top: 0.15rem;
+    padding-top: 0.2rem;
+    transition: color 0.2s ease;
+  }
+
+  .choice.correct .choice-text {
+    color: #15803d;
+    font-weight: 600;
+  }
+
+  .choice.incorrect .choice-text {
+    color: #b91c1c;
   }
 
   .reveal-btn {
     display: block;
     width: 100%;
-    padding: 0.75rem;
-    background: var(--color-accent);
+    padding: 0.85rem;
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
     color: #fff;
     border: none;
-    border-radius: var(--radius);
+    border-radius: 12px;
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
-    transition: opacity 0.15s;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.15s;
+    box-shadow: 0 4px 14px rgba(29, 78, 216, 0.25);
   }
 
   .reveal-btn:hover {
-    opacity: 0.9;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(29, 78, 216, 0.3);
+  }
+
+  .reveal-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(29, 78, 216, 0.2);
   }
 
   .reveal-btn.hidden {
@@ -358,32 +477,63 @@ import questions from '../data/questions.json';
 
   .explanation {
     margin-top: 1.5rem;
-    animation: fadeIn 0.3s ease;
+    animation: revealSlide 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
+  @keyframes revealSlide {
+    from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
   .answer-banner {
-    padding: 0.75rem 1rem;
-    border-radius: var(--radius);
+    padding: 0.85rem 1.15rem;
+    border-radius: 12px;
     font-weight: 700;
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   .answer-banner.correct {
-    background: #f0fdf4;
-    color: #16a34a;
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    color: #15803d;
     border: 1px solid #bbf7d0;
   }
 
+  .answer-banner.correct::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #16a34a;
+    border-radius: 50%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+    background-size: 14px;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+  }
+
   .answer-banner.incorrect {
-    background: #fef2f2;
-    color: #dc2626;
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+    color: #b91c1c;
     border: 1px solid #fecaca;
+  }
+
+  .answer-banner.incorrect::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #dc2626;
+    border-radius: 50%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/%3E%3C/svg%3E");
+    background-size: 12px;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
   }
 
   .answer-banner.neutral {
@@ -394,19 +544,21 @@ import questions from '../data/questions.json';
 
   .explanation-text {
     font-size: 0.95rem;
-    line-height: 1.75;
+    line-height: 1.8;
     color: var(--color-text);
-    margin: 0 0 1rem;
+    margin: 0 0 1.25rem;
+    padding: 0 0.25rem;
   }
 
   .high-yield {
-    background: #fffbeb;
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
     border: 1px solid #fde68a;
-    border-radius: var(--radius);
-    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    padding: 0.85rem 1.15rem;
     font-size: 0.9rem;
-    line-height: 1.6;
+    line-height: 1.65;
     color: #92400e;
+    box-shadow: 0 1px 4px rgba(180, 130, 0, 0.06);
   }
 
   .daily-cta {
