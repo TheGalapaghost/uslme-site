@@ -1,0 +1,422 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import questions from '../data/questions.json';
+---
+
+<BaseLayout
+  title="USMLE Question of the Day — Free Step 1 & Step 2 Practice"
+  description="Test yourself daily with free USMLE-style practice questions for Step 1 and Step 2 CK. New question every day with detailed explanations."
+>
+  <Header />
+
+  <main class="container">
+    <div class="page-header">
+      <h1>Question of the Day</h1>
+      <p>A new question every day. Test yourself, then check the explanation.</p>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab active" role="tab" data-step="step1" aria-selected="true">Step 1</button>
+      <button class="tab" role="tab" data-step="step2" aria-selected="false">Step 2 CK</button>
+    </div>
+
+    <div class="question-card" id="question-card">
+      <div class="question-meta">
+        <span class="question-topic" id="question-topic"></span>
+        <span class="question-date" id="question-date"></span>
+      </div>
+      <p class="question-stem" id="question-stem"></p>
+      <div class="choices" id="choices"></div>
+      <button class="reveal-btn" id="reveal-btn">Show Answer</button>
+      <div class="explanation hidden" id="explanation">
+        <div class="answer-banner" id="answer-banner"></div>
+        <p class="explanation-text" id="explanation-text"></p>
+        <div class="high-yield" id="high-yield"></div>
+      </div>
+    </div>
+
+    <div class="daily-cta">
+      <p>Want more practice? Browse our <a href="/blog">study guides</a> for resource reviews and strategies.</p>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<script define:vars={{ step1: questions.step1, step2: questions.step2 }}>
+  const allQuestions = { step1, step2 };
+
+  function getDayIndex(questions) {
+    const now = new Date();
+    const start = new Date(now.getFullYear(), 0, 1);
+    const dayOfYear = Math.floor((now - start) / 86400000);
+    return dayOfYear % questions.length;
+  }
+
+  function formatDate() {
+    return new Date().toLocaleDateString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  }
+
+  let currentStep = 'step1';
+  let selectedChoice = null;
+  let revealed = false;
+
+  function renderQuestion() {
+    const questions = allQuestions[currentStep];
+    const idx = getDayIndex(questions);
+    const q = questions[idx];
+
+    selectedChoice = null;
+    revealed = false;
+
+    document.getElementById('question-topic').textContent = q.topic;
+    document.getElementById('question-date').textContent = formatDate();
+    document.getElementById('question-stem').textContent = q.stem;
+
+    const choicesEl = document.getElementById('choices');
+    choicesEl.innerHTML = '';
+
+    const labels = ['A', 'B', 'C', 'D', 'E'];
+    q.choices.forEach((choice, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'choice';
+      btn.innerHTML = `<span class="choice-letter">${labels[i]}</span><span class="choice-text">${choice}</span>`;
+      btn.addEventListener('click', () => selectChoice(i, q.answer));
+      choicesEl.appendChild(btn);
+    });
+
+    const explEl = document.getElementById('explanation');
+    explEl.classList.add('hidden');
+    document.getElementById('explanation-text').textContent = q.explanation;
+    document.getElementById('high-yield').innerHTML = `<strong>High Yield:</strong> ${q.highYield}`;
+
+    const revealBtn = document.getElementById('reveal-btn');
+    revealBtn.classList.remove('hidden');
+    revealBtn.textContent = 'Show Answer';
+  }
+
+  function selectChoice(index, correctAnswer) {
+    if (revealed) return;
+    selectedChoice = index;
+
+    document.querySelectorAll('.choice').forEach((btn, i) => {
+      btn.classList.remove('selected');
+      if (i === index) btn.classList.add('selected');
+    });
+  }
+
+  function revealAnswer() {
+    if (revealed) return;
+    revealed = true;
+
+    const questions = allQuestions[currentStep];
+    const idx = getDayIndex(questions);
+    const q = questions[idx];
+
+    document.querySelectorAll('.choice').forEach((btn, i) => {
+      btn.classList.remove('selected');
+      if (i === q.answer) btn.classList.add('correct');
+      if (selectedChoice !== null && i === selectedChoice && i !== q.answer) {
+        btn.classList.add('incorrect');
+      }
+    });
+
+    const banner = document.getElementById('answer-banner');
+    if (selectedChoice === null) {
+      banner.textContent = `The correct answer is ${['A', 'B', 'C', 'D', 'E'][q.answer]}.`;
+      banner.className = 'answer-banner neutral';
+    } else if (selectedChoice === q.answer) {
+      banner.textContent = 'Correct!';
+      banner.className = 'answer-banner correct';
+    } else {
+      banner.textContent = `Incorrect. The correct answer is ${['A', 'B', 'C', 'D', 'E'][q.answer]}.`;
+      banner.className = 'answer-banner incorrect';
+    }
+
+    document.getElementById('explanation').classList.remove('hidden');
+    document.getElementById('reveal-btn').classList.add('hidden');
+  }
+
+  // Tab switching
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      currentStep = tab.dataset.step;
+      renderQuestion();
+    });
+  });
+
+  // Reveal button
+  document.getElementById('reveal-btn').addEventListener('click', revealAnswer);
+
+  // Initial render
+  renderQuestion();
+</script>
+
+<style>
+  .page-header {
+    padding: 2.5rem 0 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 2rem;
+  }
+
+  .page-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0 0 0.4rem;
+  }
+
+  .page-header p {
+    color: var(--color-muted);
+    margin: 0;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tab {
+    padding: 0.5rem 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: #fff;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .tab.active {
+    background: var(--color-accent);
+    color: #fff;
+    border-color: var(--color-accent);
+  }
+
+  .tab:hover:not(.active) {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  .question-card {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    background: #fff;
+    margin-bottom: 2rem;
+  }
+
+  .question-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .question-topic {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: 0.15rem 0.65rem;
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .question-date {
+    font-size: 0.8rem;
+    color: var(--color-muted);
+  }
+
+  .question-stem {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin: 0 0 1.5rem;
+    color: var(--color-text);
+  }
+
+  .choices {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .choice {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius);
+    background: #fff;
+    cursor: pointer;
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .choice:hover {
+    border-color: var(--color-accent);
+    background: #f0f5ff;
+  }
+
+  .choice.selected {
+    border-color: var(--color-accent);
+    background: #e8efff;
+  }
+
+  .choice.correct {
+    border-color: #16a34a;
+    background: #f0fdf4;
+  }
+
+  .choice.incorrect {
+    border-color: #dc2626;
+    background: #fef2f2;
+  }
+
+  .choice-letter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-muted);
+    flex-shrink: 0;
+  }
+
+  .choice.selected .choice-letter {
+    background: var(--color-accent);
+    color: #fff;
+    border-color: var(--color-accent);
+  }
+
+  .choice.correct .choice-letter {
+    background: #16a34a;
+    color: #fff;
+    border-color: #16a34a;
+  }
+
+  .choice.incorrect .choice-letter {
+    background: #dc2626;
+    color: #fff;
+    border-color: #dc2626;
+  }
+
+  .choice-text {
+    padding-top: 0.15rem;
+  }
+
+  .reveal-btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--color-accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+
+  .reveal-btn:hover {
+    opacity: 0.9;
+  }
+
+  .reveal-btn.hidden {
+    display: none;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .explanation {
+    margin-top: 1.5rem;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .answer-banner {
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  .answer-banner.correct {
+    background: #f0fdf4;
+    color: #16a34a;
+    border: 1px solid #bbf7d0;
+  }
+
+  .answer-banner.incorrect {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+  }
+
+  .answer-banner.neutral {
+    background: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+  }
+
+  .explanation-text {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--color-text);
+    margin: 0 0 1rem;
+  }
+
+  .high-yield {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #92400e;
+  }
+
+  .daily-cta {
+    text-align: center;
+    padding: 1.5rem 0 3rem;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+  }
+
+  .daily-cta a {
+    font-weight: 600;
+  }
+</style>

@@ -1,0 +1,306 @@
+{
+  "step1": [
+    {
+      "id": "s1-001",
+      "stem": "A 45-year-old man presents with sudden-onset substernal chest pain radiating to his left arm. ECG shows ST elevation in leads II, III, and aVF. Which coronary artery is most likely occluded?",
+      "choices": [
+        "Left anterior descending artery",
+        "Right coronary artery",
+        "Left circumflex artery",
+        "Left main coronary artery",
+        "Posterior descending artery"
+      ],
+      "answer": 1,
+      "explanation": "ST elevation in leads II, III, and aVF indicates an inferior MI, which is most commonly caused by occlusion of the right coronary artery (RCA). The RCA supplies the inferior wall of the left ventricle in most patients (right-dominant circulation, ~85% of people). The LAD supplies the anterior wall (V1-V4), and the left circumflex supplies the lateral wall (I, aVL, V5-V6).",
+      "topic": "Cardiology",
+      "highYield": "Inferior MI = RCA. Anterior MI = LAD. Lateral MI = LCx."
+    },
+    {
+      "id": "s1-002",
+      "stem": "A 22-year-old college student presents with fever, pharyngitis, and lymphadenopathy. A peripheral blood smear shows atypical lymphocytes. A heterophile antibody test is positive. Which virus is responsible?",
+      "choices": [
+        "Cytomegalovirus",
+        "Epstein-Barr virus",
+        "Human herpesvirus 6",
+        "Adenovirus",
+        "HIV"
+      ],
+      "answer": 1,
+      "explanation": "This is classic infectious mononucleosis caused by Epstein-Barr virus (EBV). The triad of fever, pharyngitis, and lymphadenopathy with atypical lymphocytes (reactive CD8+ T cells) and a positive heterophile antibody (Monospot) test is pathognomonic. CMV can cause a mono-like illness but is heterophile-negative. Remember: EBV infects B cells via CD21 and is associated with Burkitt lymphoma, nasopharyngeal carcinoma, and post-transplant lymphoproliferative disorder.",
+      "topic": "Microbiology",
+      "highYield": "EBV = heterophile positive mono. CMV = heterophile negative mono."
+    },
+    {
+      "id": "s1-003",
+      "stem": "A researcher is studying an enzyme that converts angiotensinogen to angiotensin I. This enzyme is primarily released from which of the following structures?",
+      "choices": [
+        "Macula densa",
+        "Juxtaglomerular cells",
+        "Proximal convoluted tubule",
+        "Mesangial cells",
+        "Podocytes"
+      ],
+      "answer": 1,
+      "explanation": "Renin is the enzyme that cleaves angiotensinogen (produced by the liver) to angiotensin I. Renin is released from juxtaglomerular (JG) cells, which are modified smooth muscle cells in the afferent arteriole of the glomerulus. Renin release is stimulated by decreased renal perfusion pressure, sympathetic stimulation (beta-1), and decreased NaCl delivery to the macula densa. The macula densa senses NaCl but does not produce renin — it signals the JG cells.",
+      "topic": "Renal Physiology",
+      "highYield": "JG cells release renin. Macula densa senses NaCl and signals JG cells."
+    },
+    {
+      "id": "s1-004",
+      "stem": "A 65-year-old woman is started on a new medication for atrial fibrillation. Six months later, she develops pulmonary fibrosis, thyroid dysfunction, and blue-gray skin discoloration. Which medication was most likely prescribed?",
+      "choices": [
+        "Flecainide",
+        "Sotalol",
+        "Amiodarone",
+        "Diltiazem",
+        "Digoxin"
+      ],
+      "answer": 2,
+      "explanation": "Amiodarone (Class III antiarrhythmic) has an extensive and well-tested side effect profile: pulmonary fibrosis, thyroid dysfunction (both hypo and hyper, due to its high iodine content), hepatotoxicity, corneal microdeposits, blue-gray skin discoloration, and peripheral neuropathy. Despite these side effects, it remains widely used because of its effectiveness across multiple arrhythmia types. Remember the mnemonic: amiodarone is 'loaded with side effects' — check PFTs, TFTs, LFTs, and eye exams regularly.",
+      "topic": "Pharmacology",
+      "highYield": "Amiodarone toxicity: lungs, thyroid, liver, cornea, skin. Check PFTs, TFTs, LFTs."
+    },
+    {
+      "id": "s1-005",
+      "stem": "A 2-day-old infant presents with projectile non-bilious vomiting. Physical examination reveals a palpable \"olive-shaped\" mass in the epigastrium. Which of the following is the most likely diagnosis?",
+      "choices": [
+        "Duodenal atresia",
+        "Pyloric stenosis",
+        "Midgut volvulus",
+        "Hirschsprung disease",
+        "Intussusception"
+      ],
+      "answer": 1,
+      "explanation": "Pyloric stenosis presents with projectile non-bilious vomiting in the first 2-6 weeks of life (classically in firstborn males). The hypertrophied pylorus is palpable as an olive-shaped mass. Diagnosis is confirmed by ultrasound showing thickened pyloric muscle. Treatment is pyloromyotomy (Ramstedt procedure). The vomiting is non-bilious because the obstruction is proximal to the ampulla of Vater. Labs show hypochloremic, hypokalemic metabolic alkalosis from loss of gastric HCl.",
+      "topic": "Pediatrics/GI",
+      "highYield": "Pyloric stenosis = non-bilious vomiting + olive mass + hypochloremic hypokalemic metabolic alkalosis."
+    },
+    {
+      "id": "s1-006",
+      "stem": "A 30-year-old woman presents with fatigue, weight gain, constipation, and cold intolerance. Labs show elevated TSH and low free T4. Biopsy of her thyroid would most likely show which of the following?",
+      "choices": [
+        "Orphan Annie eye nuclei",
+        "Hurthle cells and lymphocytic infiltration",
+        "Psammoma bodies",
+        "Parafollicular C cell hyperplasia",
+        "Follicular cells with scalloped colloid"
+      ],
+      "answer": 1,
+      "explanation": "This presentation is classic for Hashimoto thyroiditis — the most common cause of hypothyroidism in iodine-sufficient regions. Biopsy shows Hurthle cells (eosinophilic, enlarged follicular cells) and dense lymphocytic infiltration with germinal centers. It's an autoimmune condition with anti-TPO and anti-thyroglobulin antibodies. Orphan Annie eye nuclei are seen in papillary thyroid carcinoma. Psammoma bodies are also associated with papillary carcinoma (and meningiomas, serous ovarian tumors).",
+      "topic": "Endocrinology",
+      "highYield": "Hashimoto = Hurthle cells + lymphocytes + anti-TPO. Most common cause of hypothyroidism."
+    },
+    {
+      "id": "s1-007",
+      "stem": "A 55-year-old man with a history of chronic alcohol use presents with confusion, ophthalmoplegia, and ataxia. Which vitamin deficiency is most likely responsible?",
+      "choices": [
+        "Vitamin B12 (cobalamin)",
+        "Vitamin B1 (thiamine)",
+        "Vitamin B3 (niacin)",
+        "Vitamin B6 (pyridoxine)",
+        "Folate"
+      ],
+      "answer": 1,
+      "explanation": "The classic triad of confusion, ophthalmoplegia, and ataxia defines Wernicke encephalopathy, caused by thiamine (vitamin B1) deficiency. This is commonly seen in chronic alcoholics due to poor nutrition and impaired thiamine absorption. If untreated, it can progress to Korsakoff syndrome (confabulation, anterograde amnesia). Critical clinical pearl: always give thiamine BEFORE glucose in alcoholic patients — glucose metabolism consumes thiamine and can precipitate or worsen Wernicke encephalopathy.",
+      "topic": "Neurology",
+      "highYield": "Wernicke triad: confusion, ophthalmoplegia, ataxia. Give thiamine BEFORE glucose."
+    },
+    {
+      "id": "s1-008",
+      "stem": "A patient with type I diabetes accidentally injects too much insulin and becomes severely hypoglycemic. Which enzyme is most directly activated in the liver to raise blood glucose?",
+      "choices": [
+        "Glycogen synthase",
+        "Glucokinase",
+        "Glycogen phosphorylase",
+        "Phosphofructokinase-1",
+        "Pyruvate kinase"
+      ],
+      "answer": 2,
+      "explanation": "Glycogen phosphorylase breaks down glycogen into glucose-1-phosphate (glycogenolysis), which is the most immediate mechanism for raising blood glucose during hypoglycemia. It is activated by glucagon (via cAMP → PKA cascade) and epinephrine. Glycogen synthase does the opposite — it builds glycogen and is active in the fed state. Glucokinase and PFK-1 are glycolytic enzymes. In the liver, glucose-6-phosphatase then converts glucose-6-phosphate to free glucose for release into the blood.",
+      "topic": "Biochemistry",
+      "highYield": "Glycogen phosphorylase = glycogen breakdown. Activated by glucagon (liver) and epinephrine (muscle)."
+    },
+    {
+      "id": "s1-009",
+      "stem": "A 25-year-old woman presents with recurrent deep vein thromboses. She reports that her mother also had a history of blood clots. Genetic testing reveals a point mutation that makes Factor V resistant to cleavage by activated protein C. What is this condition?",
+      "choices": [
+        "Antithrombin III deficiency",
+        "Protein C deficiency",
+        "Factor V Leiden",
+        "Prothrombin gene mutation",
+        "Antiphospholipid syndrome"
+      ],
+      "answer": 2,
+      "explanation": "Factor V Leiden is the most common inherited hypercoagulability disorder. It results from a point mutation in Factor V that makes it resistant to inactivation by activated protein C (APC resistance). This leads to prolonged Factor V activity and increased thrombin generation. It is inherited in an autosomal dominant pattern. Heterozygotes have a 5-10x increased risk of venous thromboembolism; homozygotes have up to 80x increased risk. It does NOT affect PT or PTT — diagnosis requires APC resistance assay or genetic testing.",
+      "topic": "Hematology",
+      "highYield": "Factor V Leiden = most common inherited thrombophilia. APC resistance. Normal PT/PTT."
+    },
+    {
+      "id": "s1-010",
+      "stem": "A 60-year-old man with poorly controlled diabetes presents with a painless foot ulcer over the first metatarsal head. He has decreased sensation to monofilament testing bilaterally. Which type of nerve fibers are most likely damaged?",
+      "choices": [
+        "A-alpha fibers",
+        "A-beta fibers",
+        "A-delta fibers",
+        "B fibers",
+        "C fibers"
+      ],
+      "answer": 4,
+      "explanation": "Diabetic peripheral neuropathy preferentially damages small, unmyelinated C fibers and small myelinated A-delta fibers first ('dying back' neuropathy starting distally). C fibers carry slow pain, temperature, and touch sensation. The loss of protective sensation leads to unnoticed repetitive trauma and ulcer formation. A-alpha fibers are large myelinated fibers for proprioception and motor function. A-beta fibers carry light touch and vibration. B fibers are preganglionic autonomic fibers. The classic stocking-glove distribution reflects length-dependent axonal degeneration.",
+      "topic": "Neurology",
+      "highYield": "Diabetic neuropathy hits small fibers first (C > A-delta). Stocking-glove, length-dependent."
+    }
+  ],
+  "step2": [
+    {
+      "id": "s2-001",
+      "stem": "A 58-year-old man with a history of hypertension and diabetes presents to the ED with acute onset crushing chest pain for the past 2 hours. ECG shows ST elevation in V1-V4. Troponin is elevated. Aspirin has been given. What is the most appropriate next step?",
+      "choices": [
+        "Start heparin drip and admit to ICU",
+        "Obtain CT angiography of the chest",
+        "Emergent percutaneous coronary intervention (PCI)",
+        "Administer thrombolytics",
+        "Start nitroglycerin drip and observe"
+      ],
+      "answer": 2,
+      "explanation": "For STEMI (ST elevation in V1-V4 = anterior MI involving LAD), the standard of care is emergent PCI (percutaneous coronary intervention) if available within 90 minutes of first medical contact. PCI is superior to thrombolytics for STEMI. Thrombolytics are reserved for when PCI is not available within 120 minutes. The acute STEMI management sequence: aspirin, P2Y12 inhibitor, heparin, and emergent cath lab activation. Door-to-balloon time goal is <90 minutes.",
+      "topic": "Cardiology",
+      "highYield": "STEMI = emergent PCI if available within 90 min. Thrombolytics only if PCI unavailable."
+    },
+    {
+      "id": "s2-002",
+      "stem": "A 35-year-old woman at 32 weeks gestation presents with severe headache, visual changes, and blood pressure of 165/110 mmHg. Urinalysis shows 3+ proteinuria. What is the most appropriate next step in management?",
+      "choices": [
+        "Expectant management with bed rest",
+        "Start oral labetalol and monitor outpatient",
+        "Administer IV magnesium sulfate and plan delivery",
+        "Immediate cesarean section",
+        "Start IV hydralazine only"
+      ],
+      "answer": 2,
+      "explanation": "This patient has preeclampsia with severe features (BP >=160/110, headache, visual changes, proteinuria). Management includes: (1) IV magnesium sulfate for seizure prophylaxis, (2) antihypertensives (IV labetalol or hydralazine) for acute BP control, (3) betamethasone for fetal lung maturity if <34 weeks, and (4) plan for delivery (the definitive treatment). At 32 weeks with severe features, delivery should be pursued after stabilization and steroids. Expectant management may be considered for preeclampsia without severe features between 34-37 weeks.",
+      "topic": "OB/GYN",
+      "highYield": "Severe preeclampsia: MgSO4 + antihypertensives + deliver. MgSO4 prevents eclamptic seizures."
+    },
+    {
+      "id": "s2-003",
+      "stem": "A 70-year-old man presents with painless jaundice, weight loss, and a palpable, non-tender gallbladder. CT scan shows a mass in the head of the pancreas. What is the most appropriate initial diagnostic and staging study?",
+      "choices": [
+        "ERCP with brushings",
+        "CT-guided biopsy of the mass",
+        "Endoscopic ultrasound with FNA",
+        "Serum CA 19-9 level",
+        "Exploratory laparotomy"
+      ],
+      "answer": 2,
+      "explanation": "This presentation (painless jaundice + weight loss + palpable gallbladder = Courvoisier sign) is classic for pancreatic head cancer. After CT identifies the mass, endoscopic ultrasound (EUS) with fine-needle aspiration (FNA) is the preferred method for tissue diagnosis and local staging. It provides better resolution of the pancreas than CT and can assess vascular involvement. CA 19-9 is a tumor marker useful for monitoring but not diagnostic. ERCP is therapeutic (for stenting) but not the best initial diagnostic approach. If the mass appears resectable on imaging, some centers proceed directly to surgery (Whipple) without biopsy.",
+      "topic": "GI/Surgery",
+      "highYield": "Courvoisier sign: painless jaundice + palpable GB = pancreatic head cancer until proven otherwise."
+    },
+    {
+      "id": "s2-004",
+      "stem": "A 6-year-old boy is brought in with a 5-day history of fever, bilateral non-exudative conjunctivitis, strawberry tongue, cervical lymphadenopathy, and a polymorphous rash. What is the most important medication to administer to prevent the most serious complication?",
+      "choices": [
+        "Oral amoxicillin",
+        "IV corticosteroids",
+        "IV immunoglobulin (IVIG)",
+        "Oral ibuprofen",
+        "IV acyclovir"
+      ],
+      "answer": 2,
+      "explanation": "This is Kawasaki disease — a medium-vessel vasculitis of childhood. The most feared complication is coronary artery aneurysm, which occurs in 25% of untreated cases. Treatment with IVIG (within the first 10 days of illness) plus high-dose aspirin reduces the risk of coronary aneurysms to <5%. Diagnosis requires fever >= 5 days plus 4 of 5 criteria: bilateral conjunctivitis, oral changes (strawberry tongue, cracked lips), rash, extremity changes (edema, desquamation), and cervical lymphadenopathy (>1.5 cm). An echocardiogram should be obtained at diagnosis and at 2 and 6 weeks.",
+      "topic": "Pediatrics",
+      "highYield": "Kawasaki: fever >= 5 days + 4/5 criteria. IVIG + aspirin to prevent coronary aneurysms."
+    },
+    {
+      "id": "s2-005",
+      "stem": "A 42-year-old woman presents with palpitations, heat intolerance, tremor, and unintentional weight loss. Exam reveals diffuse goiter and proptosis. TSH is undetectable, free T4 is elevated. What is the best initial treatment?",
+      "choices": [
+        "Radioactive iodine ablation",
+        "Methimazole",
+        "Propylthiouracil",
+        "Thyroid lobectomy",
+        "Propranolol alone"
+      ],
+      "answer": 1,
+      "explanation": "This is Graves disease (hyperthyroidism + diffuse goiter + proptosis/exophthalmos from TSH receptor antibodies). First-line treatment in the US for non-pregnant patients is methimazole (a thionamide that inhibits thyroid peroxidase). Propranolol is added for symptomatic relief of adrenergic symptoms but is not definitive treatment. PTU is reserved for first-trimester pregnancy (methimazole is teratogenic in first trimester) or thyroid storm. RAI is an alternative definitive treatment but is second-line initial therapy. Beta-blockers alone are insufficient.",
+      "topic": "Endocrinology",
+      "highYield": "Graves: methimazole first-line (US). PTU only in 1st trimester or thyroid storm."
+    },
+    {
+      "id": "s2-006",
+      "stem": "A 28-year-old man presents to the ED after a motorcycle accident with severe left-sided abdominal pain. He is hypotensive (BP 85/60) and tachycardic (HR 125). FAST exam shows free fluid in the left upper quadrant. What is the most appropriate next step?",
+      "choices": [
+        "CT abdomen and pelvis with IV contrast",
+        "Diagnostic peritoneal lavage",
+        "Emergent exploratory laparotomy",
+        "Splenic artery embolization",
+        "Serial abdominal exams and observation"
+      ],
+      "answer": 2,
+      "explanation": "This patient has hemodynamic instability (hypotension + tachycardia) with a positive FAST exam (free fluid in LUQ = likely splenic injury). In hemodynamically unstable trauma patients with a positive FAST, the next step is emergent exploratory laparotomy — not CT scan. CT is only appropriate in hemodynamically STABLE trauma patients. The most commonly injured organ in blunt abdominal trauma is the spleen. Stable patients with splenic injury can be managed non-operatively with observation, but unstable patients require surgery.",
+      "topic": "Surgery/Trauma",
+      "highYield": "Unstable + positive FAST = OR. Stable + positive FAST = CT. Spleen = most injured in blunt trauma."
+    },
+    {
+      "id": "s2-007",
+      "stem": "A 55-year-old woman with a 30 pack-year smoking history presents with a new cough and 15-pound weight loss. Chest X-ray shows a 3 cm solitary pulmonary nodule. What is the most appropriate next step?",
+      "choices": [
+        "Repeat chest X-ray in 3 months",
+        "CT-guided biopsy",
+        "PET scan",
+        "CT chest with contrast",
+        "Start empiric antibiotics"
+      ],
+      "answer": 3,
+      "explanation": "A solitary pulmonary nodule >8mm in a patient with significant risk factors (smoking, weight loss, age >50) has high pretest probability for malignancy. After CXR identifies the nodule, the next step is CT chest for better characterization. If CT confirms a solid nodule, PET scan is appropriate for nodules with intermediate probability, but given the high clinical suspicion here, CT is the essential next step to characterize size, morphology, and guide further workup. CT-guided biopsy or bronchoscopy would follow based on CT findings and nodule location.",
+      "topic": "Pulmonology",
+      "highYield": "Solitary pulmonary nodule: CXR -> CT chest -> PET or biopsy based on risk and size."
+    },
+    {
+      "id": "s2-008",
+      "stem": "A 22-year-old woman presents with sadness, anhedonia, insomnia, poor concentration, and feelings of worthlessness for the past 3 weeks. She denies suicidal ideation. She has no prior psychiatric history. What is the most appropriate initial treatment?",
+      "choices": [
+        "Cognitive behavioral therapy alone",
+        "SSRI plus cognitive behavioral therapy",
+        "SNRI monotherapy",
+        "Bupropion monotherapy",
+        "Watchful waiting and reassess in 4 weeks"
+      ],
+      "answer": 1,
+      "explanation": "This patient meets criteria for major depressive disorder (>= 5 symptoms for >= 2 weeks, including depressed mood or anhedonia). For moderate MDD, first-line treatment is an SSRI (such as sertraline or escitalopram) combined with psychotherapy (CBT is best-studied). The combination of medication + therapy is more effective than either alone. SSRIs are preferred over SNRIs as initial pharmacotherapy due to better side effect profile. Bupropion is an alternative but not first-line. Allow 4-6 weeks for full SSRI effect before adjusting. Watchful waiting is inappropriate when diagnostic criteria are met.",
+      "topic": "Psychiatry",
+      "highYield": "MDD first-line: SSRI + CBT. Allow 4-6 weeks for SSRI effect. Screen for suicidality."
+    },
+    {
+      "id": "s2-009",
+      "stem": "A 65-year-old man with COPD presents with worsening dyspnea, increased sputum production, and sputum purulence over the past 3 days. His oxygen saturation is 88% on room air. What is the most appropriate antibiotic choice?",
+      "choices": [
+        "Amoxicillin",
+        "Azithromycin",
+        "Amoxicillin-clavulanate",
+        "Levofloxacin",
+        "No antibiotics needed"
+      ],
+      "answer": 2,
+      "explanation": "This patient has an acute exacerbation of COPD (AECOPD) with all 3 Anthonisen criteria (increased dyspnea, increased sputum volume, increased sputum purulence). Antibiotics are indicated when 2 of 3 criteria are met, especially with purulent sputum. First-line antibiotics include amoxicillin-clavulanate, azithromycin, or doxycycline. Respiratory fluoroquinolones (levofloxacin, moxifloxacin) are reserved for patients with risk factors for Pseudomonas or treatment failure. Management also includes short-acting bronchodilators, systemic corticosteroids (5 days), and supplemental oxygen targeting SpO2 88-92%.",
+      "topic": "Pulmonology",
+      "highYield": "AECOPD: bronchodilators + steroids (5 days) + antibiotics if 2/3 Anthonisen criteria met."
+    },
+    {
+      "id": "s2-010",
+      "stem": "A 50-year-old man presents for routine screening. He has no symptoms and no family history of colorectal cancer. What is the recommended screening test?",
+      "choices": [
+        "Colonoscopy starting at age 50, repeat every 10 years",
+        "Colonoscopy starting at age 45, repeat every 10 years",
+        "Annual fecal occult blood testing starting at age 50",
+        "CT colonography every 5 years starting at age 50",
+        "Screening is not indicated until age 55"
+      ],
+      "answer": 1,
+      "explanation": "The USPSTF recommends colorectal cancer screening for all average-risk adults beginning at age 45 (updated from 50 in 2021). Colonoscopy every 10 years is one of several acceptable strategies. Other options include annual FIT (fecal immunochemical test), FIT-DNA (Cologuard) every 1-3 years, or CT colonography every 5 years. High-risk patients (family history of CRC in first-degree relative) should begin screening at age 40 or 10 years before the earliest family diagnosis, whichever is earlier. Screening continues through age 75; ages 76-85 are individualized.",
+      "topic": "Preventive Medicine",
+      "highYield": "CRC screening: start at 45 (USPSTF). Colonoscopy q10yr or FIT annually. High risk: start at 40."
+    }
+  ]
+}
