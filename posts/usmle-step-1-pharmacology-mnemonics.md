@@ -25,7 +25,7 @@ Pharmacology demands you track:
 - **Key contraindications**
 - **Toxicity and antidotes**
 
-Across hundreds of drugs. No one does this cleanly with flashcards alone. The best-performing students combine mnemonics with **spaced repetition** (Anki/Anking decks are the gold standard here) and visual storytelling tools like **Sketchy Pharm**, which essentially turns entire drug classes into mnemonic-rich visual scenes you won't forget.
+Across hundreds of drugs. No one does this cleanly with flashcards alone. The best-performing students combine mnemonics with **spaced repetition** (Anki/Anking decks are the gold standard here) and visual storytelling tools like **Sketchy Pharm**, all anchored to **[First Aid for the USMLE Step 1](https://www.amazon.com/First-Aid-USMLE-Step-2024/dp/1264946643?tag=uslmesite-20)**, which essentially turns entire drug classes into mnemonic-rich visual scenes you won't forget.
 
 ---
 
@@ -172,7 +172,7 @@ Space your mnemonic reviews. A drug mechanism reviewed once during dedicated stu
 
 ## Bottom Line
 
-Pharmacology doesn't have to be the subject that haunts your Step 1 prep. The right **USMLE Step 1 pharmacology mnemonics** — paired with consistent active recall and quality practice questions — can turn your weakest subject into a reliable score booster. Start with the highest-yield categories: autonomic, antibiotics, cardiovascular, and psychiatry. Use Sketchy Pharm to build the initial memory traces, Anking to maintain them, and UWorld to sharpen your clinical application. Keep First Aid open as your anchor reference, and revisit your mnemonics often enough that they're second nature by test day. The students who score highest in pharmacology aren't the ones who memorized the most — they're the ones who built systems that made retrieval effortless when it mattered most.
+Pharmacology doesn't have to be the subject that haunts your Step 1 prep. The right **USMLE Step 1 pharmacology mnemonics** — paired with consistent active recall and quality practice questions — can turn your weakest subject into a reliable score booster. Start with the highest-yield categories: autonomic, antibiotics, cardiovascular, and psychiatry. Use Sketchy Pharm to build the initial memory traces, Anking to maintain them, and UWorld to sharpen your clinical application. Keep [First Aid](https://www.amazon.com/First-Aid-USMLE-Step-2024/dp/1264946643?tag=uslmesite-20) open as your anchor reference, and revisit your mnemonics often enough that they're second nature by test day. The students who score highest in pharmacology aren't the ones who memorized the most — they're the ones who built systems that made retrieval effortless when it mattered most.
 
 ---
 

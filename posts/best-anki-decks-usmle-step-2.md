@@ -154,8 +154,8 @@ The best Anki decks don't exist in a vacuum. Here's how the top resources comple
 - **UWorld Step 2 CK** — Your primary question bank. Non-negotiable. Make custom cards from high-yield explanations.
 - **Amboss** — Excellent second question bank with built-in knowledge library. Many AnKing cards reference Amboss articles directly.
 - **Boards & Beyond** — Dr. Ryan's videos provide the conceptual scaffolding that makes Anki cards stick.
-- **Pathoma** — Still relevant for Step 2 pathology-heavy questions, particularly for Pediatrics and Internal Medicine.
-- **First Aid for Step 2 CK** — Useful reference text, though less central than First Aid for Step 1. Some students annotate it alongside Anki reviews.
+- **[Pathoma](https://www.amazon.com/Pathoma-Fundamentals-Pathology-Husain-Sattar/dp/0983224633?tag=uslmesite-20)** — Still relevant for Step 2 pathology-heavy questions, particularly for Pediatrics and Internal Medicine.
+- **[First Aid for Step 2 CK](https://www.amazon.com/First-Aid-USMLE-Step-2/dp/1264855133?tag=uslmesite-20)** — Useful reference text, though less central than First Aid for Step 1. Some students annotate it alongside Anki reviews.
 
 ---
 

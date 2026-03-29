@@ -51,7 +51,7 @@ The first phase is about orienting yourself to the content landscape and establi
 
 **What to do:**
 - Take a **diagnostic UWorld block** (timed, random) to identify your weakest systems
-- Start reading through **First Aid for Step 2 CK** or **OnlineMedEd** notes for high-yield review
+- Start reading through **[First Aid for Step 2 CK](https://www.amazon.com/First-Aid-USMLE-Step-2/dp/1264855133?tag=uslmesite-20)** or **OnlineMedEd** notes for high-yield review
 - Begin **Amboss** or **UWorld** question banks with tutor mode, organized by subject
 
 Don't try to read everything before doing questions. One of the most common scheduling mistakes is front-loading passive content review. Step 2 is a *doing* exam — questions teach you faster than notes.

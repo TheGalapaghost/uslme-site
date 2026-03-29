@@ -116,7 +116,7 @@ Atherosclerosis is tested across multiple disciplines — biochemistry (lipid me
 
 ### Build Your Foundation First
 
-Don't jump into UWorld questions until you have a solid foundation. Use **Boards & Beyond** or **Pathoma** (chapters 9–10) for cardiovascular pathology, then reinforce with **First Aid** as your reference anchor. Read First Aid cardiology actively, not passively — annotate it as you go.
+Don't jump into UWorld questions until you have a solid foundation. Use **Boards & Beyond** or **[Pathoma](https://www.amazon.com/Pathoma-Fundamentals-Pathology-Husain-Sattar/dp/0983224633?tag=uslmesite-20)** (chapters 9–10) for cardiovascular pathology, then reinforce with **[First Aid](https://www.amazon.com/First-Aid-USMLE-Step-2024/dp/1264946643?tag=uslmesite-20)** as your reference anchor. Read First Aid cardiology actively, not passively — annotate it as you go.
 
 ### Layer in Active Recall with Anki
 
@@ -156,7 +156,7 @@ Amiodarone deserves a dedicated review — its side effect profile (pulmonary fi
 
 ## Bottom Line
 
-Cardiology is one of the most learnable sections on Step 1 because the concepts build logically on each other. Master the physiology first, then layer pathology, then integrate pharmacology — and you'll find that cardiology questions feel like gifts rather than threats. Use **Boards & Beyond** for conceptual clarity, **Pathoma** for pathology, **First Aid** as your central reference, **AnKing Anki decks** for retention, and **UWorld + AMBOSS** for question-based application. Cardiology done right doesn't just boost your cardiology score — it raises your entire exam performance by reinforcing pharmacology, physiology, and clinical reasoning simultaneously. Start early, review often, and own this section.
+Cardiology is one of the most learnable sections on Step 1 because the concepts build logically on each other. Master the physiology first, then layer pathology, then integrate pharmacology — and you'll find that cardiology questions feel like gifts rather than threats. Use **Boards & Beyond** for conceptual clarity, **[Pathoma](https://www.amazon.com/Pathoma-Fundamentals-Pathology-Husain-Sattar/dp/0983224633?tag=uslmesite-20)** for pathology, **[First Aid](https://www.amazon.com/First-Aid-USMLE-Step-2024/dp/1264946643?tag=uslmesite-20)** as your central reference, **AnKing Anki decks** for retention, and **UWorld + AMBOSS** for question-based application. Cardiology done right doesn't just boost your cardiology score — it raises your entire exam performance by reinforcing pharmacology, physiology, and clinical reasoning simultaneously. Start early, review often, and own this section.
 
 ---
 

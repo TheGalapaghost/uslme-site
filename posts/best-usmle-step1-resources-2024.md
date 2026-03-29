@@ -14,11 +14,11 @@ Every successful Step 1 study plan starts with three pillars.
 
 ### First Aid for the USMLE Step 1
 
-First Aid is the non-negotiable foundation. Published annually, it distills high-yield pathophysiology, pharmacology, microbiology, and biochemistry into a format that mirrors the actual exam. The 2024 edition includes updated content reflecting recent guideline changes.
+[First Aid](https://www.amazon.com/First-Aid-USMLE-Step-2024/dp/1264946643?tag=uslmesite-20) is the non-negotiable foundation. Published annually, it distills high-yield pathophysiology, pharmacology, microbiology, and biochemistry into a format that mirrors the actual exam. The 2024 edition includes updated content reflecting recent guideline changes.
 
 **How to use it:** Don't read First Aid passively. Annotate as you go through other resources. Use it as an anchor — not a primary teacher.
 
-**Verdict:** Essential. Buy the current edition.
+**Verdict:** Essential. [Buy the current edition](https://www.amazon.com/First-Aid-USMLE-Step-2024/dp/1264946643?tag=uslmesite-20).
 
 ### UWorld Step 1 Qbank
 
@@ -48,7 +48,7 @@ Sketchy uses visual storytelling scenes to teach pharmacology and microbiology. 
 
 ### Pathoma
 
-Dr. Sattar's Pathoma is the most beloved pathology resource in medical education. The concise videos and accompanying textbook break down complex pathology into digestible, high-yield content. Most students finish all 13 chapters 2–3 times before their dedicated study period ends.
+Dr. Sattar's [Pathoma](https://www.amazon.com/Pathoma-Fundamentals-Pathology-Husain-Sattar/dp/0983224633?tag=uslmesite-20) is the most beloved pathology resource in medical education. The concise videos and accompanying textbook break down complex pathology into digestible, high-yield content. Most students finish all 13 chapters 2–3 times before their dedicated study period ends.
 
 **How to use it:** Watch Pathoma alongside the corresponding First Aid chapter.
 
@@ -104,6 +104,6 @@ Set your test date when you're consistently scoring 10–15 points above your ta
 
 The best Step 1 resources are the ones you actually use consistently. Resist the urge to add more resources. Master fewer things deeply. Students who score above 250 are rarely using more than 3–4 resources — they've just gone deeper into them.
 
-Stick to First Aid, UWorld, Anki (Anking), and either Pathoma or Sketchy depending on your learning style. That's it.
+Stick to [First Aid](https://www.amazon.com/First-Aid-USMLE-Step-2024/dp/1264946643?tag=uslmesite-20), UWorld, Anki (Anking), and either [Pathoma](https://www.amazon.com/Pathoma-Fundamentals-Pathology-Husain-Sattar/dp/0983224633?tag=uslmesite-20) or Sketchy depending on your learning style. That's it.
 
 > **Disclosure:** Some links on this page are affiliate links. We may earn a commission if you purchase through them, at no extra cost to you. See our [full disclaimer](/disclaimer).

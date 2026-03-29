@@ -50,7 +50,7 @@ This is where AMBOSS truly differentiates itself. The **AMBOSS Library** is a pe
 
 For Step 2 CK and clerkships especially, being able to pivot from a question about heart failure management directly into a detailed library article — without opening another tab — is a genuine workflow advantage.
 
-UWorld has improved its explanatory content significantly, but it does not have a comparable integrated knowledge library. You'll still need to pair UWorld with **First Aid**, **Pathoma**, **Sketchy**, or **Boards & Beyond** for conceptual learning.
+UWorld has improved its explanatory content significantly, but it does not have a comparable integrated knowledge library. You'll still need to pair UWorld with **[First Aid](https://www.amazon.com/First-Aid-USMLE-Step-2024/dp/1264946643?tag=uslmesite-20)**, **[Pathoma](https://www.amazon.com/Pathoma-Fundamentals-Pathology-Husain-Sattar/dp/0983224633?tag=uslmesite-20)**, **Sketchy**, or **Boards & Beyond** for conceptual learning.
 
 **Edge:** AMBOSS, clearly.
 
@@ -136,8 +136,8 @@ The students who perform best on boards don't pick one platform and ignore the o
 If budget allows, consider this stack:
 - **UWorld** (Qbank + Self-Assessments)
 - **AMBOSS** (Library access or full subscription for Step 2/clerkships)
-- **First Aid** (still essential for Step 1)
-- **Pathoma** or **Sketchy** for pathology/micro/pharm
+- **[First Aid](https://www.amazon.com/First-Aid-USMLE-Step-2024/dp/1264946643?tag=uslmesite-20)** (still essential for Step 1)
+- **[Pathoma](https://www.amazon.com/Pathoma-Fundamentals-Pathology-Husain-Sattar/dp/0983224633?tag=uslmesite-20)** or **Sketchy** for pathology/micro/pharm
 - **Anki/Anking** for spaced repetition
 
 This isn't about buying everything — it's about building a system where each tool fills a specific gap.
